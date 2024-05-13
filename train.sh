@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=1 python run_language_modeling.py \
+    --model_name_or_path gpt2 \
+    --do_train \
+    --do_eval \
+    --dataset_name ./openwebtext-wordlength \
+    --logging_steps 100 \
+    --evaluation_strategy steps \
+    --max_eval_samples 100 \
+    --preprocessing_num_workers 8 \
+    --output_dir checkpoints \
+    --save_steps 10000 \
+    --lr_scheduler_type linear \
+    --seed 1111 \
+    --overwrite_output_dir
