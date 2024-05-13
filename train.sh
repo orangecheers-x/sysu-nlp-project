@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=1 python run_language_modeling.py \
+CUDA_VISIBLE_DEVICES=2,3 python run_language_modeling.py \
     --model_name_or_path gpt2 \
     --do_train \
     --do_eval \
@@ -11,4 +11,6 @@ CUDA_VISIBLE_DEVICES=1 python run_language_modeling.py \
     --save_steps 10000 \
     --lr_scheduler_type linear \
     --seed 1111 \
+    --per_device_train_batch_size 16 \
+    --learning_rate 1e-5 \
     --overwrite_output_dir
