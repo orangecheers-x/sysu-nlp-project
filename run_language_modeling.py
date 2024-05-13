@@ -478,8 +478,13 @@ def main():
 
     # We resize the embeddings only when necessary to avoid index errors. If you are creating a model from scratch
     # on a small vocab and want a smaller embedding size, remove this test.
+    tokenizer.add_special_tokens(
+        {'additional_special_tokens': ['<len>', '<text>']})
+
     embedding_size = model.get_input_embeddings().weight.shape[0]
     if len(tokenizer) > embedding_size:
+        print("=============================== RESIZE TOKEN EMBED")
+        print(tokenizer.special_tokens_map)
         model.resize_token_embeddings(len(tokenizer))
 
     # Preprocessing the datasets.
