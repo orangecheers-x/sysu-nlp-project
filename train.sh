@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=2,3 python run_language_modeling.py \
+CUDA_VISIBLE_DEVICES=2,3 python -u run_language_modeling.py \
     --model_name_or_path gpt2 \
     --do_train \
     --do_eval \
@@ -13,4 +13,4 @@ CUDA_VISIBLE_DEVICES=2,3 python run_language_modeling.py \
     --seed 1111 \
     --per_device_train_batch_size 16 \
     --learning_rate 1e-5 \
-    --overwrite_output_dir
+    --overwrite_output_dir | tee train.log
